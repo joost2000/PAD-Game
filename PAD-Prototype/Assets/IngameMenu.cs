@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class IngameMenu : MonoBehaviour
 {
 
     public static bool gameIsPaused = false;
-    public GameObject pauseMenuUI;
+    public GameObject IngameMenuUI;
 
     // Update is called once per frame
     void Update()
@@ -23,17 +23,23 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+        /*
+        if (playerhealth == 0)
+        {
+            GameOver();
+        }
+        */
     }
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
+        IngameMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
 
     void Pause()
     {
-        pauseMenuUI.SetActive(true);
+        IngameMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
@@ -41,7 +47,12 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
-        Debug.Log("loading menu");
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 0f;
+        SceneManager.LoadScene("PlayingScene");
     }
 }
