@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MouseHover : MonoBehaviour
 {
     public TMPro.TextMeshProUGUI text;
-    public GameObject playButton;
+    public GameObject canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class MouseHover : MonoBehaviour
 
     }
 
-    public void OnMouseOver()
+    public void OnMouseEnter()
     {
         Debug.Log("testing");
         text.fontStyle = TMPro.FontStyles.Underline;
