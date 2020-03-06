@@ -6,8 +6,15 @@ using UnityEngine.SceneManagement;
 public class IngameMenu : MonoBehaviour
 {
 
-    public static bool gameIsPaused = false;
+    public static bool gameIsPaused = false, gameIsOver = false;
     public GameObject IngameMenuUI;
+    public GameObject GameOverMenuUI;
+
+    public void Start()
+    {
+        IngameMenuUI.SetActive(false);
+        GameOverMenuUI.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()
@@ -26,7 +33,11 @@ public class IngameMenu : MonoBehaviour
         /*
         if (playerhealth == 0)
         {
-            GameOver();
+            gameIsOver = true;
+                if(gameIsOver)
+                {
+                    GameOver();
+                }
         }
         */
     }
@@ -42,6 +53,13 @@ public class IngameMenu : MonoBehaviour
         IngameMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+    }
+
+    void GameOver()
+    {
+        GameOverMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        gameIsOver = true;
     }
 
     public void LoadMenu()

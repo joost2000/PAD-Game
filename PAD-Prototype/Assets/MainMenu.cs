@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public TMPro.TextMeshProUGUI playButton;
 
@@ -15,11 +15,15 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("entering UIobject");
         playButton.fontStyle = TMPro.FontStyles.Underline;
     }
 
     public void OnPointerExit(PointerEventData eventData)
+    {
+        playButton.fontStyle = TMPro.FontStyles.Normal;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
     {
         playButton.fontStyle = TMPro.FontStyles.Normal;
     }

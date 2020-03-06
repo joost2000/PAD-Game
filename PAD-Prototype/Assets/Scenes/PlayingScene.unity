@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &196922822
 RectTransform:
   m_ObjectHideFlags: 0
@@ -765,6 +765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IngameMenuUI: {fileID: 736940254}
+  GameOverMenuUI: {fileID: 196922821}
 --- !u!1 &1486502592
 GameObject:
   m_ObjectHideFlags: 0
