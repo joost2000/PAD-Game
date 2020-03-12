@@ -19,13 +19,13 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // Shoot(1);
+      
     }
 
     public void Shoot(float helling)
     {
-        float fireAngle = -(Mathf.Atan(helling) * Mathf.Rad2Deg);
-        playerBody.SetRotation(fireAngle);
+        float fireAngle = ( Mathf.Rad2Deg * Mathf.Atan(helling) + 90) ;
+        playerBody.rotation = fireAngle;
         laserShootScript.Shoot(fireAngle);
        
 

@@ -14,6 +14,7 @@ public class EnemyScript : MonoBehaviour
     float HP;
     bool hitbullet;
     bool hitplayer;
+    public float deathcounter = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class EnemyScript : MonoBehaviour
 
         Goal = new Vector2(0.0f, 0.0f);
 
-        setPosition(Random.Range(-6f, 6f), Random.Range(-6f, 6f));
+        setPosition(Random.Range(-6, 6), Random.Range(-6, 6));
 
 
 
@@ -46,6 +47,24 @@ public class EnemyScript : MonoBehaviour
 
         target.position = Vector2.MoveTowards(target.position, Goal, step);
 
+        if (target.position.x == 0 && target.position.y == 0)
+        {
+            hitplayer = true;
+        }
+        if (hitplayer == true || hitbullet == true)
+        {
+            Reset();
+        }
 
+    }
+
+    private void Reset()
+    {
+        Goal = new Vector2(0.0f, 0.0f);
+
+        setPosition(Random.Range(-6, 6), Random.Range(-6, 6));
+
+        deathcounter++;
+        hitplayer = false;
     }
 }
